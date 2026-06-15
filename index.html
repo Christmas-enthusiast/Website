@@ -1,14 +1,155 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your Name</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        .subtitle {
+            color: #aaa;
+        }
+
+        .projects {
+            padding: 5rem 10%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #222;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #888;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <h1>hello??</h1>
-    <p>agsdfjasgdjhfajksdgshdkfgkjshdflkjghlskdfhgljkshdflgkjhsdflkghslkjdfhglksjdhfglkjsdhflkgshdflkgshdfljkghsdlkfjghsdlkjfghslkdfjghsldkjfhgldsfhglskdfhglskdfhglskdjfhglsdkfghsldkjfghslkdjfghsjdfhgsjdfhglksdfglkjshdfglkjsdhfglkjsdhflgkjsgfjhkasdgf</p>
-    <p>agsdfjasgdjhfajksdgfjhkasdgf</p>
-    <p>agsdfjasgdjhfajksdgfjhkasdgf</p>
-    <p>agsdfjasgdjhfajksdgfjhkasdgf</p>
+
+<nav>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+    </ul>
+</nav>
+
+<section id="hero" class="hero">
+    <h1>Your Name</h1>
+    <p class="subtitle">Engineering Student | Programmer | Builder</p>
+</section>
+
+<section id="projects" class="projects fade-in">
+    <h2>Projects</h2>
+    <br>
+
+    <div class="project-grid">
+
+        <div class="card">
+            <h3>3D Engine</h3>
+            <p>Built from scratch using Python.</p>
+        </div>
+
+        <div class="card">
+            <h3>CNC Simulator</h3>
+            <p>Toolpath visualization project.</p>
+        </div>
+
+        <div class="card">
+            <h3>RC Aircraft</h3>
+            <p>Custom flight electronics and software.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Your Name
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".fade-in").forEach(element => {
+    observer.observe(element);
+});
+</script>
+
 </body>
 </html>
